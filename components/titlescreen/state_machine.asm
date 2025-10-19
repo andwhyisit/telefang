@@ -264,7 +264,7 @@ TitleScreen_StateCorruptSaveIdle::
     
 ; State 01 10
 TitleScreen_StateJumpToTitleMenu::
-; Don't erase save data on encountering the save corruption screen, just pretend there is no save data.
+; Don't erase save data on encountering the save corruption screen, just pretend there is no save data (except for allowing the continue button to work).
     
     ld a, 2
     ld [W_SaveClock_SaveCheckPassed], a
