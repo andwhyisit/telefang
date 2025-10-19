@@ -264,10 +264,9 @@ TitleScreen_StateCorruptSaveIdle::
     
 ; State 01 10
 TitleScreen_StateJumpToTitleMenu::
-    call SaveClock_EraseSaveData
-    call SaveClock_EraseLoadedSave
+; Don't erase save data on encountering the save corruption screen, just pretend there is no save data.
     
-    ld a, 1
+    ld a, 2
     ld [W_SaveClock_SaveCheckPassed], a
     
     ld a, 3
@@ -276,6 +275,13 @@ TitleScreen_StateJumpToTitleMenu::
     xor a
     ld [W_SystemSubState], a
     ret
+	
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
     
 ; State 01 12
 TitleScreen_StateJumpToAttract::
